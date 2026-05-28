@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+/* Imagina que el universo web empieza aquí; esto es como establecer las leyes de la física fundamentales para todo nuestro documento. */
+:root { /* Constantes del Universo NEXUS */
+  --color-dawn: #00f3ff; /* Cyan Neón - Modo Crítico/Activo */
+  --color-day: #bc13fe; /* Morado Neón - Modo Reflexivo */
+  --color-dusk: #090a0f; /* Fondo muy oscuro para contraste */
+  --color-night: #050507; /* Oscuridad total */
+  --color-bg: #090a0f; /* Espacio profundo cibernético */
+  --color-text: #e0e0e0; /* Texto claro */
+  --color-alert-soft: #ff003c; /* Rojo/Rosa Neón para Alertas */
+} /* Cerramos nuestra caja de constantes universales para que el resto del sistema las pueda invocar como una fórmula. */
+
+* { /* El asterisco es como decir 'todas las partículas del sistema', aplicaremos estas reglas a cada átomo (elemento HTML) de la página. */
+  box-sizing: border-box; /* Medimos el tamaño de las cosas de borde a borde, como medir una caja por fuera, para no tener sorpresas matemáticas con el tamaño. */
+  margin: 0; /* Quitamos el espacio exterior por defecto, porque queremos ser nosotros quienes dicten la gravedad (distancia) entre los elementos. */
+  padding: 0; /* Quitamos el espacio interior por defecto, como vaciar el vacío de una caja antes de empezar a llenarla a nuestra medida exacta. */
+} /* Fin de las reglas fundamentales para todas las partículas de nuestro lienzo. */
+
+body { /* Este es el contenedor principal, nuestro espacio-tiempo bidimensional donde vivirá Chronos. */
+  background-color: var(--color-bg); /* Pintamos el vacío con nuestro espacio profundo para relajar la carga cognitiva inmediatamente al abrir la app. */
+  color: var(--color-text); /* Establecemos el color de la materia (texto) para que contraste suavemente sin deslumbrar como una estrella nova. */
+  font-family: 'Space Grotesk', system-ui, sans-serif; /* Elegimos una tipografía futurista (Space Grotesk) para una apariencia Sci-Fi sutil. */
+  overflow: hidden; /* ¡Regla fundamental y disruptiva! Bloqueamos el scroll infinito. Nuestro universo es cerrado, sin 'más abajo', combatiendo la adicción. */
+  width: 100vw; /* Ocupamos el cien por ciento del ancho visible, abrazando todo el campo de visión del usuario sin invadirlo. */
+  height: 100vh; /* Ocupamos todo el alto visible. Todo lo necesario para el momento presente está aquí, fomentando el enfoque absoluto. */
+  display: flex; /* Usamos un modelo de caja flexible, que es como tener resortes elásticos que acomodan el contenido de forma natural. */
+  justify-content: center; /* Centramos todo en el eje horizontal, manteniendo el centro de gravedad visual en equilibrio perfecto. */
+  align-items: center; /* Centramos todo en el eje vertical. Ahora nuestra aplicación flota armónicamente en el centro del abismo. */
+  transition: all 2s cubic-bezier(0.4, 0, 0.2, 1); /* Cualquier cambio en el fondo se hará con una curva suave, imitando la transición del atardecer real. */
+} /* Fin de las reglas del cuerpo del universo. */
+
+.organic-shape { /* Esta es la clase para nuestras formas vivas; no usamos rectángulos rígidos, sino burbujas que simulan energía biológica. */
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; /* Modificamos los radios de las esquinas de forma asimétrica para que parezca una gota de líquido. */
+  animation: morph 8s ease-in-out infinite; /* Le aplicamos una animación infinita para que 'respire', oscilando lentamente como un pulmón sano. */
+  transition: all 0.5s ease; /* Si la tocamos (hover), reaccionará suavemente, como la tensión superficial del agua ajustándose a un toque. */
+} /* Cerramos las propiedades base de la materia orgánica. */
+
+@keyframes morph { /* Aquí definimos cómo se mueve la energía; keyframes son como las fotografías sucesivas en un experimento de cinemática. */
+  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; } /* Estado inicial: la burbuja está distorsionada hacia un lado, como empujada por el viento. */
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; } /* A la mitad del tiempo: la masa se ha desplazado al lado opuesto, completando el ciclo de inhalación. */
+  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; } /* Estado final: volvemos al origen, cerrando el bucle temporal para que parezca un latido continuo. */
+} /* Fin de la partitura de movimiento de nuestras formas orgánicas. */
+
+.blur-tension { /* Esta clase es para el Flujo 2; cuando la agenda se satura, el espacio visual se distorsiona para advertir sobrecarga. */
+  filter: blur(8px) contrast(1.2); /* Difuminamos la luz (blur) y aumentamos el contraste para crear una sensación de densidad, de 'aire pesado'. */
+  pointer-events: none; /* Como un campo de fuerza, evitamos que el usuario haga clic en la zona sobrecargada, protegiendo su energía mental. */
+  transition: filter 0.8s ease; /* La distorsión aparece progresivamente, no como un error del sistema, sino como una neblina natural. */
+} /* Fin de las reglas del campo de fuerza de tensión cognitiva. */
+
+.fade-night { /* Esta clase se usa en el Flujo 3; cuando llega la hora de descansar, todo el universo se apaga. */
+  filter: grayscale(100%) brightness(0.4); /* Eliminamos el color (energía) y reducimos la luz, indicando al cerebro que es hora de secretar melatonina. */
+  transition: filter 3s ease-in-out; /* El apagado es muy lento, como el sol ocultándose en el horizonte, dándole tiempo al usuario para cerrar procesos mentales. */
+} /* Fin del protocolo de apagado biológico. */
+
+.glass-panel { /* Estilo para las tarjetas de información; simulamos un cristal esmerilado flotando en el espacio para dar profundidad sin bordes duros. */
+  background: rgba(255, 255, 255, 0.03); /* Un blanco casi transparente, como un campo cuántico de baja probabilidad. */
+  backdrop-filter: blur(12px); /* Desenfocamos lo que hay detrás; esto concentra la atención en el texto superior sin perder el contexto del fondo. */
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Un borde minúsculo, solo para delimitar el volumen del cristal en el vacío. */
+  border-radius: 24px; /* Esquinas muy redondeadas, eliminando vértices afilados que subconscientemente generan alerta. */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Una sombra suave que separa el panel del fondo, simulando que la luz viene desde nuestra pantalla hacia adentro. */
+} /* Cerramos la definición de nuestro cristal esmerilado protector. */
+
+/* ESTILOS FUTURISTAS NUEVOS */
+.futuristic-text {
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 0 0 10px currentColor, 0 0 20px rgba(255,255,255,0.1);
+  letter-spacing: 0.05em;
+}
+
+.futuristic-text-subtle {
+  font-family: 'Space Grotesk', sans-serif;
+  text-shadow: 0 0 5px rgba(255,255,255,0.2);
+}
+
+.futuristic-border {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02), 0 0 20px rgba(0,0,0,0.4);
+}
