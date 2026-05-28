@@ -1,22 +1,22 @@
-export type EnergyLevel = 'Pico' | 'Estable' | 'Agotamiento';
+export type GodTime = 'Chronos (Lineal)' | 'Kairós (Oportuno)' | 'Aión (Eterno)';
 
 export interface Task {
   id: string;
   title: string;
-  cognitiveLoad: number;
-  type: 'Analítica' | 'Creativa' | 'Mecánica' | 'Descanso';
+  temporalGravity: number;
+  type: 'Decreto' | 'Profecía' | 'Mortal' | 'Estasis';
 }
 
 export const initialTasks: Task[] = [
-  { id: 't1', title: 'Planificación Estratégica', cognitiveLoad: 5, type: 'Analítica' },
-  { id: 't2', title: 'Diseño de Interfaz UX', cognitiveLoad: 4, type: 'Creativa' },
-  { id: 't3', title: 'Responder Correos Asíncronos', cognitiveLoad: 2, type: 'Mecánica' },
-  { id: 't4', title: 'Reunión de Sincronización', cognitiveLoad: 3, type: 'Mecánica' },
+  { id: 't1', title: 'Forjar la Gran Estrategia', temporalGravity: 5, type: 'Decreto' },
+  { id: 't2', title: 'Alineación de Mortales (Sincronización)', temporalGravity: 3, type: 'Mortal' },
+  { id: 't3', title: 'Descifrar Pergaminos (Gestión)', temporalGravity: 2, type: 'Mortal' },
+  { id: 't4', title: 'Invocar Tormenta de Ideas', temporalGravity: 4, type: 'Profecía' },
 ];
 
 export const burnoutTriggerTask: Task = {
   id: 't-burnout',
-  title: 'Revisión de Presupuestos (Alta Carga)',
-  cognitiveLoad: 5,
-  type: 'Analítica',
+  title: 'Desafiar a los Dioses (Exceso Mortal)',
+  temporalGravity: 5,
+  type: 'Decreto',
 };

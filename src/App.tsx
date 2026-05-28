@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { initialTasks, Task, EnergyLevel } from './data/mockData';
+import { initialTasks, Task, GodTime } from './data/mockData';
 import Particles from './components/Particles';
 
 import Flow1Init from './components/Flow1Init';
@@ -7,7 +7,7 @@ import Flow2Tasks from './components/Flow2Tasks';
 import Flow3Close from './components/Flow3Close';
 
 export default function App() {
-  const [energyState, setEnergyState] = useState<EnergyLevel | null>(null);
+  const [energyState, setEnergyState] = useState<GodTime | null>(null);
   const [tasks, setTasks] = useState<Task[]>(initialTasks);
   const [isBurnoutBlocked, setIsBurnoutBlocked] = useState(false);
   const [isDayClosed, setIsDayClosed] = useState(false);
@@ -15,9 +15,9 @@ export default function App() {
   useEffect(() => {
     if (energyState) {
       const reordered = [...initialTasks].sort((a, b) => {
-        if (energyState === 'Pico') return b.cognitiveLoad - a.cognitiveLoad;
-        if (energyState === 'Agotamiento') return a.cognitiveLoad - b.cognitiveLoad;
-        return 0; // Estable
+        if (energyState === 'Chronos (Lineal)') return a.temporalGravity - b.temporalGravity;
+        if (energyState === 'Kairós (Oportuno)') return b.temporalGravity - a.temporalGravity;
+        return 0; // Aión
       });
       setTasks(reordered);
     }
@@ -27,12 +27,17 @@ export default function App() {
     setIsBurnoutBlocked(true);
     setTimeout(() => {
       setIsBurnoutBlocked(false);
-      setTasks(prev => [...prev, { id: 'pausa', title: 'Respiración / Pausa Visual', cognitiveLoad: 1, type: 'Descanso' }]);
-    }, 2500);
+      setTasks(prev => [...prev, { id: 'estasis', title: 'Espacio de Estasis Temporal', temporalGravity: 0, type: 'Estasis' }]);
+    }, 4000); // 4 segundos para leer el texto de Moiras
   };
 
   const closeDay = () => {
     setIsDayClosed(true);
+  };
+
+  const resetToHome = () => {
+    setEnergyState(null);
+    setIsDayClosed(false);
   };
 
   return (
@@ -50,11 +55,12 @@ export default function App() {
           isBurnoutBlocked={isBurnoutBlocked}
           triggerBurnoutBarrier={triggerBurnoutBarrier}
           closeDay={closeDay}
+          goBack={resetToHome}
         />
       )}
 
       {isDayClosed && (
-        <Flow3Close />
+        <Flow3Close resetApp={resetToHome} />
       )}
     </div>
   );
