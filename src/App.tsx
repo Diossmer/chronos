@@ -44,7 +44,7 @@ export default function App() {
       )}
 
       {energyState && !isDayClosed && (
-        <Flow2Tasks 
+        <Flow2Tasks
           energyState={energyState}
           tasks={tasks}
           isBurnoutBlocked={isBurnoutBlocked}
@@ -56,17 +56,6 @@ export default function App() {
       {isDayClosed && (
         <Flow3Close />
       )}
-
-      {/* Lista de Integrantes Minimalista */}
-      <div className="fixed bottom-6 left-6 text-left opacity-80 text-gray-200 futuristic-text-subtle text-sm pointer-events-none hover:opacity-100 transition-opacity z-50 drop-shadow-md">
-        <p className="mb-2 text-[var(--color-dawn)] font-bold">NODO DE INNOVACIÓN</p>
-        <p>Juan Henriquez - 27913162</p>
-        <p>Frederick Durán - 30346056</p>
-        <p>Diossmer Villamizar - 21310567</p>
-        <p>Yesmir Guzman - 20130682</p>
-        <p>Jasmar Chirino - 15165088</p>
-        <p>Eliezer González - 30667160</p>
-      </div>
     </div>
   );
 }

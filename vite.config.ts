@@ -6,5 +6,5 @@ import tailwindcss from '@tailwindcss/vite' // Plugin de Tailwind v4 para Vite.
 // ¿Por qué? Para que al ejecutar 'pnpm run dev', Vite sepa qué hacer / Why? So when we run 'pnpm run dev', Vite knows what to do.
 export default defineConfig({
   // Añadimos el plugin de React y Tailwind a los plugins de Vite / We add the React and Tailwind plugin to Vite's plugins.
-  plugins: [react(), tailwindcss()], 
+  plugins: [react(), tailwindcss()],
 })
