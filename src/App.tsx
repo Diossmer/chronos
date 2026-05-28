@@ -41,7 +41,7 @@ export default function App() {
   };
 
   return (
-    <div className={`w-full h-full flex flex-col items-center justify-center p-8 transition-all duration-1000 relative overflow-hidden ${isDayClosed ? 'fade-night' : ''}`}>
+    <div className={`w-full h-full flex flex-col items-center p-8 transition-all duration-1000 relative overflow-hidden ${isDayClosed ? 'fade-night' : ''}`}>
       <Particles isDayClosed={isDayClosed} />
 
       {!energyState && !isDayClosed && (

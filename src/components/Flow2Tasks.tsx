@@ -14,7 +14,7 @@ interface Props {
 export default function Flow2Tasks({ energyState, tasks, isBurnoutBlocked, triggerBurnoutBarrier, closeDay, goBack }: Props) {
   return (
     <>
-      <div className={`w-full max-w-4xl flex-1 flex flex-col p-4 z-10 ${isBurnoutBlocked ? 'blur-tension' : ''}`}>
+      <div className={`w-full max-w-4xl flex-1 min-h-0 flex flex-col p-4 z-10 ${isBurnoutBlocked ? 'blur-tension' : ''}`}>
         <header className="flex justify-between items-center mb-10 glass-panel p-8 futuristic-border">
           <div className="space-y-4">
             <h2 className="text-3xl font-bold text-[var(--color-day)] futuristic-text tracking-wide">Tejido del Destino</h2>
@@ -30,35 +30,37 @@ export default function Flow2Tasks({ energyState, tasks, isBurnoutBlocked, trigg
           </div>
         </header>
 
-        <div className="flex-1 w-full grid grid-cols-2 gap-6 content-start items-stretch">
-          <AnimatePresence>
-            {tasks.map((task) => (
-              <motion.div 
-                key={task.id} 
-                layout
-                initial={{ opacity: 0, scale: 0.8 }} 
-                animate={{ opacity: 1, scale: 1 }} 
-                className={`glass-panel p-6 flex flex-col gap-4 organic-shape futuristic-border ${task.type === 'Estasis' ? 'col-span-2 border-[var(--color-dawn)] bg-[var(--color-dawn)]/10 text-center items-center' : ''}`}
-              >
-                <h3 className="text-xl font-bold futuristic-text tracking-wider">{task.title}</h3>
-                <div className="mt-auto pt-4 border-t border-white/10 flex justify-between items-center w-full">
-                  <span className="text-sm opacity-60">
-                    {task.type === 'Estasis' && <Check size={16} className="inline mr-2 text-[var(--color-dawn)]" />}
-                    Hilo: {task.type}
-                  </span>
-                  <div className="flex gap-1">
-                    {/* Representación visual de la gravedad temporal */}
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <div key={i} className={`w-3 h-3 rounded-full ${i < task.temporalGravity ? 'bg-[var(--color-alert-soft)] shadow-[0_0_8px_var(--color-alert-soft)]' : 'bg-white/10'}`} />
-                    ))}
+        <div className="flex-1 min-h-0 w-full overflow-y-auto pr-4 custom-scrollbar">
+          <div className="grid grid-cols-2 gap-6 content-start items-stretch pb-4">
+            <AnimatePresence>
+              {tasks.map((task) => (
+                <motion.div 
+                  key={task.id} 
+                  layout
+                  initial={{ opacity: 0, scale: 0.8 }} 
+                  animate={{ opacity: 1, scale: 1 }} 
+                  className={`glass-panel p-6 flex flex-col gap-4 organic-shape futuristic-border ${task.type === 'Estasis' ? 'col-span-2 border-[var(--color-dawn)] bg-[var(--color-dawn)]/10 text-center items-center' : ''}`}
+                >
+                  <h3 className="text-xl font-bold futuristic-text tracking-wider">{task.title}</h3>
+                  <div className="mt-auto pt-4 border-t border-white/10 flex justify-between items-center w-full">
+                    <span className="text-sm opacity-60">
+                      {task.type === 'Estasis' && <Check size={16} className="inline mr-2 text-[var(--color-dawn)]" />}
+                      Hilo: {task.type}
+                    </span>
+                    <div className="flex gap-1">
+                      {/* Representación visual de la gravedad temporal */}
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <div key={i} className={`w-3 h-3 rounded-full ${i < task.temporalGravity ? 'bg-[var(--color-alert-soft)] shadow-[0_0_8px_var(--color-alert-soft)]' : 'bg-white/10'}`} />
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
         </div>
 
-        <div className="mt-10 mb-6">
+        <div className="mt-10 mb-6 shrink-0">
           <button onClick={triggerBurnoutBarrier} className="w-full glass-panel p-6 flex justify-center items-center gap-3 hover:bg-white/10 transition-colors organic-shape border-dashed border-2 border-[var(--color-alert-soft)] futuristic-text text-[var(--color-alert-soft)] hover:shadow-[0_0_30px_var(--color-alert-soft)]">
             <Plus size={28} className="animate-pulse" /> Desafiar al Oráculo (Agendar 3ra Reunión Mortal)
           </button>
